@@ -1,0 +1,3 @@
+package: github.com/xellio/logger
+import:
+- package: github.com/fsnotify/fsnotify
