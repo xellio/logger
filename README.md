@@ -1,8 +1,4 @@
 ## logger
-Like 
-```
-tail -F /path/to/file
-```
 
 Usage:
 ```
@@ -45,8 +41,6 @@ func main() {
     for {
         select {
         case change := <-resCh:
-            fmt.Println("Received change from channel...", len(change.Lines), change.File.Path)
-
             for _, line := range change.Lines {
                 fmt.Println(string(line.Content))
             }
