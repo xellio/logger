@@ -21,7 +21,8 @@ func init() {
 func main() {
 
 	if len(logFiles) <= 0 {
-		log.Fatal("No parsable logfiles detected.")
+		fmt.Println(`Usage:
+	logger /path/to/logfile /path/to/another/logfile`)
 		os.Exit(1)
 	}
 
