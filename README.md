@@ -1,5 +1,7 @@
 ## logger
 
+Like ```tail -F /log/this/file```
+
 Usage:
 ```
 package main
