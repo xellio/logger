@@ -2,6 +2,10 @@
 
 Like ```tail -F /log/this/file```
 
+[![go report card](https://goreportcard.com/badge/github.com/xellio/logger "go report card")](https://goreportcard.com/report/github.com/xellio/logger)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+[![GoDoc](https://godoc.org/github.com/xellio/logger?status.svg)](https://godoc.org/github.com/xellio/logger)
+
 Usage:
 ```
 package main

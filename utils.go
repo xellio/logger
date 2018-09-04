@@ -1,7 +1,6 @@
 package logger
 
 import (
-	"errors"
 	"fmt"
 	"syscall"
 )
@@ -12,7 +11,7 @@ import (
 func INode(file string) (uint64, error) {
 	var stat syscall.Stat_t
 	if err := syscall.Stat(file, &stat); err != nil {
-		return 0, errors.New(fmt.Sprintf("%s: %s\n", file, err.Error()))
+		return 0, fmt.Errorf("%s: %s\n", file, err.Error())
 	}
 	return stat.Ino, nil
 }
@@ -23,7 +22,7 @@ func INode(file string) (uint64, error) {
 func Size(file string) (int64, error) {
 	var stat syscall.Stat_t
 	if err := syscall.Stat(file, &stat); err != nil {
-		return 0, errors.New(fmt.Sprintf("%s: %s\n", file, err.Error()))
+		return 0, fmt.Errorf("%s: %s\n", file, err.Error())
 	}
 
 	return stat.Size, nil
