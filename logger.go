@@ -42,7 +42,6 @@ func Start(result chan *Change, files ...string) error {
 		for {
 			select {
 			case event := <-watcher.Events:
-				log.Println(event)
 				change, err := (watchedFiles[event.Name]).HandleEvent(event.Op)
 				if err != nil {
 					errCh <- err
