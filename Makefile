@@ -32,7 +32,7 @@ clean:
 $(BINDIR):
 	mkdir -p $(BINDIR)
 
-test:
+test: vendor
 	$(GO) test -race $$($(GO) list ./...)
 
 $(GOLINT):
