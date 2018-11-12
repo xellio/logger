@@ -84,7 +84,7 @@ func (f *File) Parse() (lines []*Line, err error) {
 		var lineBytes []byte
 		lineBytes, err = f.NextLine()
 		if err != nil || lineBytes == nil {
-			err = errors.New("Problem reading next line")
+			err = errors.New("problem reading next line")
 			break
 		}
 

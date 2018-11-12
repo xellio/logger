@@ -1,5 +1,8 @@
-GO      = go
 TARGET  = logger
+
+GO      	= go
+GOLINT  	= $(GOPATH)/bin/golint
+GO_SUBPKGS 	= $(shell $(GO) list ./... | grep -v /vendor/ | sed -e "s!$$($(GO) list)!.!")
 
 BINDIR = ./bin/
 
@@ -28,3 +31,14 @@ clean:
 
 $(BINDIR):
 	mkdir -p $(BINDIR)
+
+test:
+	$(GO) test -race $$($(GO) list ./...)
+
+$(GOLINT):
+	$(GO) get -u golang.org/x/lint/golint
+
+lint: $(GOLINT)
+	@for f in $(GO_SUBPKGS) ; do $(GOLINT) $$f ; done
+
+.PHONY:test lint vendor
